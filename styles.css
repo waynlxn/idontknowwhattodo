@@ -1,43 +1,55 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    text-align: center;
+body{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+    background:#000;
 }
 
-h1 {
-    color: #333;
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("Adam_3.jpeg") center/cover no-repeat;
+    filter:blur(24px) brightness(.5);
+    transform:scale(1.1);
+    z-index:-2;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 30px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.2);
+    z-index:-1;
 }
 
-button:hover {
-    background-color: #45a049;
+.container{
+    text-align:center;
 }
 
-#voteCount {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #555;
+img{
+    width:260px;
+    border-radius:16px;
+    cursor:pointer;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+    transition:.2s;
+}
+
+img:hover{
+    transform:scale(1.03);
+}
+
+#result{
+    margin-top:20px;
+    color:#fff;
+    font-size:36px;
+    font-weight:bold;
 }
