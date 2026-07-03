@@ -1,36 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://unpkg.com/htmx.org@2.0.7"></script>
-<style>
-body{
-    margin:0;
-    height:100vh;
-    display:grid;
-    place-items:center;
-    background:#111;
-    font-family:Arial,sans-serif;
-}
-.container{
-    text-align:center;
-}
-img{
-    width:200px;
-    cursor:pointer;
-}
-#result{
-    margin-top:20px;
-    color:#fff;
-    font-size:32px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Click</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/htmx.org@2.0.7"></script>
 </head>
 <body>
 
 <div class="container">
-    <img src="image.png"
+    <img src="Adam_3.jpeg"
+         alt="Image"
          hx-on:click="document.getElementById('result').textContent='wew'">
     <div id="result"></div>
 </div>
