@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ playing: false }">
+<html lang="en" x-data>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,9 +37,9 @@ body{
     pointer-events:none;
     background:
         radial-gradient(circle at center,
-            transparent 45%,
-            rgba(140,0,0,.35) 70%,
-            rgba(0,0,0,.9) 100%);
+        transparent 45%,
+        rgba(180,0,0,.35) 70%,
+        rgba(0,0,0,.95) 100%);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
 }
@@ -49,38 +49,40 @@ body{
     inset:-80px;
     pointer-events:none;
     box-shadow:
-        inset 0 0 200px rgba(0,0,0,.95),
-        inset 0 0 140px rgba(255,0,0,.35);
+        inset 0 0 220px rgba(0,0,0,.95),
+        inset 0 0 150px rgba(255,0,0,.35);
     filter:blur(35px);
 }
 </style>
 </head>
-
 <body>
 
 <div class="bg"></div>
 <div class="overlay"></div>
 <div class="vignette"></div>
 
-<audio id="bgm" src="adam.mp3" autoplay loop></audio>
+<audio id="bgm" autoplay loop preload="auto">
+    <source src="adam.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-const audio = document.getElementById("bgm");
-audio.volume = 0.6;
+const bgm = document.getElementById("bgm");
 
-const playAudio = () => {
-    audio.play().catch(() => {});
-};
+bgm.volume = 1;
 
-playAudio();
-
-document.addEventListener("click", playAudio, { once: true });
-document.addEventListener("touchstart", playAudio, { once: true });
-document.addEventListener("keydown", playAudio, { once: true });
-
-document.addEventListener("visibilitychange", () => {
-    if (!document.hidden) playAudio();
+window.addEventListener("load", () => {
+    bgm.play().catch(() => {});
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    bgm.play().catch(() => {});
+});
+
+setInterval(() => {
+    if (bgm.paused) {
+        bgm.play().catch(() => {});
+    }
+}, 1000);
 </script>
 
 </body>
